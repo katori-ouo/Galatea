@@ -4,333 +4,110 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html xmlns="http://www.w3.org/1999/html">
-	<head>
-		<script type="text/javascript"
-  		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-		</script>
-		<title>ReZero</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<html>
 
-		<!-- Wrapper -->
-			<div id="wrapper"  style="width: 1200px; margin: 0 auto">
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h2 align="center">ReZero: Region-wise Zone extraction for Speech Enhancement</h2>
-											<p><center>Anonymous Authors</center></p>
-										</header>
-										<h3>Abstract:</h3>
-										<p>
-											Region-wise speech enhancement (R-SE) has attracted increasing attention owing to the relaxed requirement for target speaker information (e.g., clean speaker enrollment or precise speaker direction/location)
-											and the number of speakers. However, existing R-SE models typically make use of fixed or pre-defined angular or distance queries, while lacking the flexibility to dynamically adjust them per needed.
-											Towards more general R-SE with alterable region types and scopes, this work proposes <b>Re</b>gion-wise <b>Z</b>one <b>e</b>xt<b>r</b>acti<b>o</b>n (<b>ReZero</b>), a unified R-SE framework,
-											to extract and dereverberate all the speech signals within the query region from the mixture. We further propose a multi-channel extension of the band-split RNN (BSRNN) model to enhance the overall performance. 
-											During evaluation, the azimuth, elevation and distance range of the query zone can be dynamically selected to obtain different enhancement results as needed. 
-											Experimental results demonstrate the feasibility and potential of the proposed ReZero model for general R-SE. 	
-										</p>
+<head>
+	<title>Galatea</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-										<div align="center">
-										<img src="images/ReZero.png" style="background-repeat:no-repeat; background-size:contain" width="80%" alt=""  />
-										</div>
+<body class="is-preload">
 
-										
-									</div>
-									
-								</section>
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-
-			<!-- Section -->
-			<section id="demo">
-				<header class="major">
-					<h3>Demo on synthetic data (3-mic, mono output) </h3>
-				</header>
-				<div class="content">
-					<article>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<header>
+							<h2 align="center">A Unified Geometry-aware Source Localization and Separation Framework for
+								Ad-hoc Microphone Array</h2>
+							<p align="center">Jingjie Fan, Rongzhi Gu, Yi Luo</p>
+						</header>
+						<h3>Abstract:</h3>
 						<p>
-							<br>
-							ReZero can be defined in any microphone configurations or applications,
-							and is capable of handling alterable region types and scopes.
-							<br>
-							Here we consider a typical smart phone based voice communication scenario,
-							where the microphones are located compactly within a smart-phone-size box.
-							<br>
-							The figure below shows:
-							<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b> The geometry and spacings of the adopted 3-element microphone array;
-							<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> A top view of different query regions performed on the same mixture;
-							<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Angular-window-based zone extraction: all the potential cases of the number
-							of targets (0, 1, or 2) within the zone are covered;
-							<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b> Closest talk extraction.<br>
-							It is observed that ReZero can produce different enhancement
-							results when alternating the query region types and scopes to meet
-							different requirements in versatile environments.
+							An important challenge in multi-channel speech processing for ad-hoc microphone array lies
+							in employing a universal model capable of processing arrays with different geometries or
+							varying numbers of microphones.
+							This requires the model to process inputs of different dimensions and extract array
+							geometry-independent features.
+							Although there are existing end-to-end neural networks designed for ad-hoc microphone array,
+							they have not fully exploited the information provided by the microphone arrays.
+							In this paper, we propose Galatea, a unified geometry-aware source localization and
+							separation
+							framework for ad-hoc microphone array.
+							<!-- <br><br><strong><a href="https://arxiv.org/pdf/2308.16892.pdf">[PDF]</a></strong> arxiv论文的链接 -->
 						</p>
-					</article>
-				</div>
 
-				<div class="inner">
-					<article>
-						<div align="center">
-						<img src="images/3mic_dyn_queries.png" style="background-repeat:no-repeat; background-size:contain" width="100%" alt=""  />
-						</div>
-					</article>
-				</div>
-				<div class="content">
-					<article>
-						<!--a href="#" class="image"><img src="images/pic02.jpg" alt="" /></--a>-->
-						<table>
-							<thead>
-								<tr align="center">
-									<th><center><h3>Query&nbsp;index</h3></center></th>
-									<th><center><h3>Query&nbsp;region</h3></center></th>
-									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixture&nbsp;(ref.&nbsp;channel)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center> </th>
-									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center></th>
-									<th><center><h3>ReZero&nbsp;output</h3></center></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>1</center></td>
-									<td>θ ∈ [50°,100°]</td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/mixture.wav"></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query1/target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query1/rezero.wav" ></audio></td>
-								</tr>
+					</div>
+				</section>
 
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>2</center></td>
-									<td><center>θ ∈ [65°,140°]</center></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/mixture.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query2/target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query2/rezero.wav" ></audio></td>
-								</tr>
-
-
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>3</center></td>
-									<td><center>θ ∈ [-10°,-75°]</center></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/mixture.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query3/target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query3/rezero.wav" ></audio></td>
-								</tr>
-
-
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>4</center></td>
-									<td><center>closest talk</center></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/mixture.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query4/target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query4/rezero.wav" ></audio></td>
-								</tr>
-
-							</tbody>
-						</table>
-
-						<!--<ul class="actions">
-							<li><a href="#" class="button">More</a></li>
-						</ul>-->
-					</article>
-				</div>
-			</section>
-
-			<!-- Section -->
-			<section id="demo_2mic">
-				<header class="major">
-					<h3>Demo on synthetic data (2-mic, stereo output) </h3>
-				</header>
-				<div class="content">
-					<article>
-						<p>
-							<br>
-							We apply ReZero in a stereo scenario with preserved spatial cues.
-							A pair of earphones is preferred when listening to the stereo audios.
-							<br>
-							The report/paper which will elaborate on the implementation of this configuration (stereo in & stereo output) is ongoing.
-
-							<br>
-							The figure below shows:
-							<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b> The geometry and spacings of the dual-mic array;
-							<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> A top view of different query regions performed on the same mixture;
-							</p>
-					</article>
-				</div>
-
-				<div class="inner">
-					<article>
-						<div align="center">
-						<img src="images/2mic.png" style="background-repeat:no-repeat; background-size:contain" width="50%" alt=""  />
-						</div>
-					</article>
-				</div>
-				<div class="content">
-					<article>
-						<!--a href="#" class="image"><img src="images/pic02.jpg" alt="" /></--a>-->
-						<table>
-							<thead>
-								<tr align="center">
-									<th><center><h3>Query&nbsp;index</h3></center></th>
-									<th><center><h3>Query&nbsp;region</h3></center></th>
-									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixture&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center> </th>
-									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center></th>
-									<th><center><h3>ReZero&nbsp;output (stereo)</h3></center></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>1</center></td>
-									<td>θ ∈ [70, 110°]</td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/2mic_mixture.wav"></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query1/2mic_target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query1/2mic_rezero.wav" ></audio></td>
-								</tr>
-
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>2</center></td>
-									<td><center>θ ∈ [-50°,-120°]</center></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/2mic_mixture.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query2/2mic_target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query2/2mic_rezero.wav" ></audio></td>
-								</tr>
-
-
-								<tr style="border-top:1px solid black" align="center">
-									<td><center>3</center></td>
-									<td><center>θ ∈ [-15°,15°]</center></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/2mic_mixture.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query3/2mic_target.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query3/2mic_rezero.wav" ></audio></td>
-								</tr>
-
-
-							</tbody>
-						</table>
-
-						<!--<ul class="actions">
-							<li><a href="#" class="button">More</a></li>
-						</ul>-->
-					</article>
-				</div>
-			</section>
-
-			<!-- Section -->
-			<section id="real_2mic">
-				<header class="major">
-					<h3>Demo on real-recorded data (2-mic, stereo output) </h3>
-				</header>
-				<div class="content">
-					<article>
-						<p>
-							<br>
-							The ReZero model trained on synthetic data is evaluated on real-recorded stereo data.
-							The microphone spacing between two recording sensors is 14cm for the presented demo.
-							The evaluation is also conducted on 2-mic recordings with 10.5cm and 7cm spacings.
-							<br>
-							The model is causal.
-							<br>
-							The figure below illustrates the conversation scene in a conference room (about 10 x 6 x 4 m^3).
-							A conference table is placed at the center of the room with the dual-mic put on the table.
-							Two male speakers sit by the table at 90° and 0° relative to the microphone array, respectively.
-							The distance-to-array is about 1.5 meters.
-							<br>
-
-						</p>
-					</article>
-				</div>
-
-				<div class="inner">
-					<article>
-						<div align="center">
-						<img src="images/2mic_real.png" style="background-repeat:no-repeat; background-size:contain" width="60%" alt=""  />
-						</div>
-					</article>
-				</div>
-				<div class="content">
-					<article>
-						<!--a href="#" class="image"><img src="images/pic02.jpg" alt="" /></--a>-->
-						<table>
-							<thead>
-								<tr align="center">
-									<th><center><h3>Time&nbsp;Stamp</h3></center></th>
-<!--									<th><center><h3>Query&nbsp;region</h3></center></th>-->
-									<th><center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recording&nbsp;(stereo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center> </th>
-									<th><center><h3>Query&nbsp;[45, 100°]</h3></center></th>
-									<th><center><h3>Query&nbsp;[-30, 30°]</h3></center></th>
-									<th><center><h3>Query&nbsp;[-90, -30°]</h3></center></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr style="border-top:1px solid black" align="center">
-									<td>[9.0-38.0]</td>
-<!--									<td><center>1</center></td>-->
-<!--									<td>θ ∈ [45, 100°]</td>-->
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/mixture/2mic_real_mixture%5B9.0%5D.wav"></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query1/2mic_real_%5B9.0%5D.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query2/2mic_real_%5B9.0%5D.wav" ></audio></td>
-									<td><audio controls class="audio-player" preload="metadata" style="width:180px;">
-										<source src="audio/query3/2mic_real_%5B9.0%5D.wav" ></audio></td>
-								</tr>
-							</tbody>
-						</table>
-
-						<!--<ul class="actions">
-							<li><a href="#" class="button">More</a></li>
-						</ul>-->
-					</article>
-				</div>
-			</section>
-
-			<section id="stay">
-				<header class="major">
-					<h3>Stay tuned! Something new is coming :) </h3>
-				</header>
-			</section>
-
+				<section id="stay">
+					<header class="major">
+						<h3>Stay tuned! Something new is coming :) </h3>
+					</header>
+				</section>
 			</div>
+		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
 
-	</body>
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<p></p>
+					<ul>
+						<li><a href="#banner">Abstract</a></li>
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Related works</h2>
+					</header>
+					<p></p>
+					<p>[1] Yi Luo and Jianwei Yu.
+						"Music Source Separation With Band-Split RNN", IEEE/ACM Transactions on Audio, Speech, and
+						Language Processing, 2023.
+					</p>
+
+					<p>[2] Rongzhi Gu, Shi-Xiong Zhang, Meng Yu, et al. "3D spatial features for Multi-channel Target
+						Speech Separation", ASRU 2021.
+						<strong><a href="https://moplast.github.io/3d.github.io/">Demos</a></strong>
+					</p>
+
+				</section>
+
+
+				<footer id="footer">
+					<p class="copyright">
+						<center><img src="images/tencent_icon.png" height="100px" alt=""></center>
+						<center>© Aug. 2023 </center>
+					</p>
+
+				</footer>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
